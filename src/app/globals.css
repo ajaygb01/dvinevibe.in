@@ -1,29 +1,13 @@
 /* ==========================================================================
-   Dvinevibe: an editorial temple guide with a workshop on the side.
-   Parchment paper, ultramarine ink, temple gold. Flat colour, fine rules,
-   big serif headlines. Light and dark themes share the same tokens.
+   Dvinevibe: a temple guide with a workshop on the side.
+   "Marble": white paper, ultramarine line drawings, a touch of temple gold,
+   clean sans headlines. Dark mode is "Sanctum", the temple at night.
    ========================================================================== */
 
 :root {
-  --paper: #fbf6ea;
-  --paper-2: #f3ead3;
-  --card: #fffdf7;
-  --ink: #191a46;
-  --ink-2: #4d4a68;
-  --ink-3: #75718c;
-  --rule: #e2d4ae;
-  --rule-strong: #c9b47c;
-  --gold: #9a6b08; /* text-safe gold on paper */
-  --gold-fill: #d9a520; /* button and accent fills */
   --on-gold: #1f1600;
-  --ultra: #2536a6; /* ultramarine links and accents */
   --ultra-fill: #2536a6;
   --on-ultra: #ffffff;
-  --panel: #131a5e; /* deep ultramarine bands */
-  --on-panel: #f6ecd2;
-  --on-panel-2: #c0c4ea;
-  --panel-rule: rgba(246, 236, 210, 0.22);
-  --art-line: #d9a520; /* line colour of temple drawings on panels */
   --flame: #b8480c;
   --ok: #1d6b38;
   --danger: #a3261d;
@@ -33,37 +17,55 @@
   --radius-lg: 12px;
   --shadow: 0 1px 2px rgba(25, 26, 70, 0.06), 0 8px 24px -16px rgba(25, 26, 70, 0.35);
 
-  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-display: "Mukta", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body: "Mukta", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --paper: #ffffff;
+  --paper-2: #f7f6f2;
+  --card: #ffffff;
+  --ink: #15163a;
+  --ink-2: #4b4a5e;
+  --ink-3: #85849a;
+  --rule: #ebe8e0;
+  --rule-strong: #d6d2c6;
+  --gold: #a87508;
+  --gold-fill: #d9a520;
+  --ultra: #2536a6;
+  --panel: #f3f1ea;
+  --on-panel: #15163a;
+  --on-panel-2: #5d5c72;
+  --panel-rule: #e2ded2;
+  --art-line: #2536a6;
 
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #0d1030;
-    --paper-2: #131741;
-    --card: #161b4a;
-    --ink: #f2e9d2;
-    --ink-2: #c3bfd6;
-    --ink-3: #9893b3;
-    --rule: #2b316b;
-    --rule-strong: #4a4f8c;
+    --on-gold: #1f1600;
+    --on-ultra: #ffffff;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 28px -16px rgba(0, 0, 0, 0.7);
+    --paper: #0b0e2c;
+    --paper-2: #10143a;
+    --card: #141945;
+    --ink: #f4ead2;
+    --ink-2: #c6c1d8;
+    --ink-3: #9a95b6;
+    --rule: #262c62;
+    --rule-strong: #3f4583;
     --gold: #e4b84a;
     --gold-fill: #e0ad2c;
-    --on-gold: #1f1600;
-    --ultra: #a9b6ff;
+    --ultra: #aab7ff;
     --ultra-fill: #3a4fd8;
-    --on-ultra: #ffffff;
-    --panel: #070a26;
+    --panel: #151b55;
     --on-panel: #f6ecd2;
     --on-panel-2: #b3b7de;
     --panel-rule: rgba(246, 236, 210, 0.16);
+    --art-line: #e0ad2c;
     --flame: #f08a46;
     --ok: #6fd08f;
     --danger: #ff8a7f;
     --select: #1f2660;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 28px -16px rgba(0, 0, 0, 0.7);
     color-scheme: dark;
   }
 }
@@ -1892,92 +1894,50 @@ fieldset.card legend {
   }
 }
 
-/* ==========================================================================
-   Alternative looks. Set <html data-look="marble"> or "sanctum".
-   ========================================================================== */
-
-/* Marble: white, quiet, one ultramarine line colour and a touch of gold. */
-:root[data-look="marble"] {
-  --paper: #ffffff;
-  --paper-2: #f7f6f2;
-  --card: #ffffff;
-  --ink: #15163a;
-  --ink-2: #4b4a5e;
-  --ink-3: #85849a;
-  --rule: #ebe8e0;
-  --rule-strong: #d6d2c6;
-  --gold: #a87508;
-  --gold-fill: #d9a520;
-  --ultra: #2536a6;
-  --panel: #f3f1ea;
-  --on-panel: #15163a;
-  --on-panel-2: #5d5c72;
-  --panel-rule: #e2ded2;
-  --art-line: #2536a6;
-  color-scheme: light;
-}
-:root[data-look="marble"] h1,
-:root[data-look="marble"] h2,
-:root[data-look="marble"] h3 {
+/* ---------- Marble look: modern sans headlines, quiet panels ---------- */
+h1,
+h2,
+h3 {
   font-family: var(--font-body);
   font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1.08;
 }
-:root[data-look="marble"] h1 { font-size: clamp(2.3rem, 5vw, 3.9rem); }
-:root[data-look="marble"] .standfirst { font-family: var(--font-body); font-weight: 300; font-size: clamp(1.1rem, 1.8vw, 1.3rem); }
-:root[data-look="marble"] .kicker::before { display: none; }
-:root[data-look="marble"] .kicker { letter-spacing: 0.16em; }
-:root[data-look="marble"] .side-list strong,
-:root[data-look="marble"] .calendar strong,
-:root[data-look="marble"] .calendar__month,
-:root[data-look="marble"] .numbered li > :nth-child(2),
-:root[data-look="marble"] .numbered__n,
-:root[data-look="marble"] .compass__point a,
-:root[data-look="marble"] .pull p,
-:root[data-look="marble"] .temple-link strong,
-:root[data-look="marble"] fieldset.card legend,
-:root[data-look="marble"] .cart-line__info strong,
-:root[data-look="marble"] .brand__name {
+h1 { font-size: clamp(2.3rem, 5vw, 3.9rem); }
+.standfirst { font-family: var(--font-body); font-weight: 300; font-size: clamp(1.1rem, 1.8vw, 1.3rem); }
+.kicker::before { display: none; }
+.kicker { letter-spacing: 0.16em; }
+.side-list strong,
+.calendar strong,
+.calendar__month,
+.numbered li > :nth-child(2),
+.numbered__n,
+.compass__point a,
+.pull p,
+.temple-link strong,
+fieldset.card legend,
+.cart-line__info strong,
+.brand__name {
   font-family: var(--font-body);
   font-weight: 600;
   letter-spacing: -0.02em;
 }
-:root[data-look="marble"] .side-list strong { font-size: 1.25rem; }
-:root[data-look="marble"] .band { background: var(--paper-2); border-color: transparent; }
-:root[data-look="marble"] .ink-band a { border-bottom-color: var(--gold-fill); }
-:root[data-look="marble"] .site-footer { border-top: 1px solid var(--rule); }
-:root[data-look="marble"] .tone-gold { background: #f6e7b8; }
-:root[data-look="marble"] .tone-ultra { background: #e6e9f8; color: #2536a6; }
-:root[data-look="marble"] .tone-flame { background: #f8dcc2; }
+.side-list strong { font-size: 1.25rem; }
+.band { background: var(--paper-2); border-color: transparent; }
+.ink-band a { border-bottom-color: var(--gold-fill); }
+.site-footer { border-top: 1px solid var(--rule); }
+.tone-gold { background: #f6e7b8; }
+.tone-ultra { background: #e6e9f8; color: #2536a6; }
+.tone-flame { background: #f8dcc2; }
 
-/* Sanctum: the temple at night. Deep ultramarine, gold lines, lamplight text. */
-:root[data-look="sanctum"] {
-  --paper: #0b0e2c;
-  --paper-2: #10143a;
-  --card: #141945;
-  --ink: #f4ead2;
-  --ink-2: #c6c1d8;
-  --ink-3: #9a95b6;
-  --rule: #262c62;
-  --rule-strong: #3f4583;
-  --gold: #e4b84a;
-  --gold-fill: #e0ad2c;
-  --ultra: #aab7ff;
-  --ultra-fill: #3a4fd8;
-  --panel: #151b55;
-  --on-panel: #f6ecd2;
-  --on-panel-2: #b3b7de;
-  --panel-rule: rgba(246, 236, 210, 0.16);
-  --art-line: #e0ad2c;
-  --flame: #f08a46;
-  --ok: #6fd08f;
-  --danger: #ff8a7f;
-  --select: #1f2660;
-  color-scheme: dark;
+/* Night look for dark mode */
+@media (prefers-color-scheme: dark) {
+  .band { background: var(--paper-2); }
+  .ink-band { background: #070a22; }
+  .site-footer { background: #070a22; }
+  .lead__art,
+  .temple-card__art { border: 1px solid #2a3170; }
+  .tone-gold { background: #3a2f12; color: #e9c35a; }
+  .tone-ultra { background: #1c2463; color: #aab7ff; }
+  .tone-flame { background: #3d2010; color: #f0a060; }
 }
-:root[data-look="sanctum"] .band { background: var(--paper-2); }
-:root[data-look="sanctum"] .ink-band { background: #070a22; }
-:root[data-look="sanctum"] .site-footer { background: #070a22; }
-:root[data-look="sanctum"] .lead__art,
-:root[data-look="sanctum"] .temple-card__art { border: 1px solid #2a3170; }
