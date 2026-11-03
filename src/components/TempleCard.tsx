@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { readMinutes, type Temple } from "@/data/temples";
 import { TempleArt } from "./TempleArt";
+import { TemplePhoto } from "./TemplePhoto";
 import { NativeName } from "./NativeName";
 
 /** Editorial temple teaser: drawing, region, name, place and standfirst. */
 export function TempleCard({ temple, compact = false }: { temple: Temple; compact?: boolean }) {
   return (
     <Link href={`/temples/${temple.slug}/`} className={`temple-card ${compact ? "temple-card--compact" : ""}`}>
-      <div className="temple-card__art">
+      <div className={`temple-card__art ${temple.photo ? "has-photo" : ""}`}>
         {!compact && <NativeName temple={temple} className="temple-card__native" />}
-        <TempleArt kind={temple.silhouette} />
+        {temple.photo ? <TemplePhoto temple={temple} credit={false} /> : <TempleArt kind={temple.silhouette} />}
       </div>
       <div className="temple-card__body">
         <p className="temple-card__meta">

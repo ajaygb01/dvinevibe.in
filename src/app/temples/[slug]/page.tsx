@@ -6,6 +6,7 @@ import { Kicker } from "@/components/Kicker";
 import { LampLight } from "@/components/LampLight";
 import { NativeName } from "@/components/NativeName";
 import { TempleArt } from "@/components/TempleArt";
+import { TemplePhoto } from "@/components/TemplePhoto";
 import { TempleCard } from "@/components/TempleCard";
 import { ShopAside, productsForTemple } from "@/components/ShopAside";
 
@@ -31,7 +32,8 @@ export default async function TemplePage({ params }: { params: Promise<Params> }
 
   return (
     <article>
-      <LampLight className="story-hero">
+      <LampLight className={`story-hero ${temple.photo ? "story-hero--photo" : ""}`}>
+        {temple.photo && <TemplePhoto temple={temple} className="story-hero__photo" />}
         <NativeName temple={temple} className="story-hero__native" />
         <div className="container story-hero__grid">
           <div className="story-hero__text">
@@ -45,10 +47,12 @@ export default async function TemplePage({ params }: { params: Promise<Params> }
               {temple.city}, {temple.state} · {temple.style} · {readMinutes(temple)} min read
             </p>
           </div>
-          <figure className="story-hero__art">
-            <TempleArt kind={temple.silhouette} className="draw" label={`Line drawing in the ${temple.style} style`} />
-            <figcaption>Drawn in the {temple.style} style. Photographs coming soon.</figcaption>
-          </figure>
+          {!temple.photo && (
+            <figure className="story-hero__art">
+              <TempleArt kind={temple.silhouette} className="draw" label={`Line drawing in the ${temple.style} style`} />
+              <figcaption>Drawn in the {temple.style} style. Photographs coming soon.</figcaption>
+            </figure>
+          )}
         </div>
       </LampLight>
 

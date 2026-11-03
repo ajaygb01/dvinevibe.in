@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { charDham, jyotirlingas, readMinutes, temples, type Temple } from "@/data/temples";
 import { TempleArt } from "./TempleArt";
+import { TemplePhoto } from "./TemplePhoto";
 import { NativeName } from "./NativeName";
 
 // Equirectangular projection, squeezed by cos(22°) so India keeps its shape.
@@ -124,8 +125,12 @@ export function YatraMap() {
 
       <article className="yatra__card" aria-live="polite">
         <NativeName temple={active} className="yatra__native" />
-        <div className="yatra__art">
-          <TempleArt key={active.slug} kind={active.silhouette} className="draw" />
+        <div className={`yatra__art ${active.photo ? "has-photo" : ""}`}>
+          {active.photo ? (
+            <TemplePhoto key={active.slug} temple={active} credit={false} />
+          ) : (
+            <TempleArt key={active.slug} kind={active.silhouette} className="draw" />
+          )}
         </div>
         <p className="kicker kicker--light">
           {active.region} India · {readMinutes(active)} min read

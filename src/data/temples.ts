@@ -4,6 +4,17 @@
 
 export type Region = "North" | "South" | "East" | "West" | "Central";
 
+export type TemplePhoto = {
+  src: string;
+  alt: string;
+  /** Photographer or rights holder, as the licence asks to be credited. */
+  credit: string;
+  /** e.g. "CC BY-SA 4.0". */
+  license: string;
+  /** Where the photo and its licence can be checked. */
+  sourceUrl: string;
+};
+
 export type NativeScript = "deva" | "taml" | "telu" | "mlym" | "orya" | "beng" | "gujr";
 
 /** Line drawing used for a temple until real photography is added. */
@@ -16,6 +27,11 @@ export type Temple = {
   /** Latitude and longitude, used to place the temple on the yatra map. */
   geo: [number, number];
   silhouette: Silhouette;
+  /**
+   * Optional photograph. Files go in public/temples/<slug>.jpg (or any URL).
+   * Freely licensed photos (e.g. Wikimedia Commons) must keep their credit and licence.
+   */
+  photo?: TemplePhoto;
   reach: { rail: string; air: string };
   name: string;
   deity: string;

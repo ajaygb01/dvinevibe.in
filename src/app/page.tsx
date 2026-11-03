@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { TempleArt } from "@/components/TempleArt";
+import { TemplePhoto } from "@/components/TemplePhoto";
 import { TempleCard } from "@/components/TempleCard";
 import { ProductCard } from "@/components/ProductCard";
 import { LampLight } from "@/components/LampLight";
@@ -67,10 +68,14 @@ export default function HomePage() {
       {/* Featured story */}
       <section className="feature">
         <div className="container feature__grid" data-reveal>
-          <Link href={`/temples/${lead.slug}/`} className="feature__art">
-            <NativeName temple={lead} className="feature__native" />
-            <TempleArt kind={lead.silhouette} label={`Line drawing of ${lead.name}`} />
-          </Link>
+          {lead.photo ? (
+            <TemplePhoto temple={lead} className="feature__photo" />
+          ) : (
+            <Link href={`/temples/${lead.slug}/`} className="feature__art">
+              <NativeName temple={lead} className="feature__native" />
+              <TempleArt kind={lead.silhouette} label={`Line drawing of ${lead.name}`} />
+            </Link>
+          )}
           <div className="feature__text">
             <Kicker>Featured story · {lead.state}</Kicker>
             <h2 className="feature__title">

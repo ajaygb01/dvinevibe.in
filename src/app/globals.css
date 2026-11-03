@@ -2855,3 +2855,102 @@ em {
     font-size: 22px;
   }
 }
+
+/* ---------- Temple photographs ---------- */
+
+.photo {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photo__credit {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.5rem;
+  max-width: calc(100% - 1.2rem);
+  font-size: 0.7rem;
+  line-height: 1.3;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  background: rgba(7, 10, 34, 0.65);
+  color: #e8e2f2;
+}
+.photo__credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Temple page: the photo fills the hero, toned towards lamplight and night */
+.story-hero--photo {
+  min-height: min(78vh, 720px);
+  display: flex;
+  align-items: flex-end;
+}
+.story-hero--photo .story-hero__grid {
+  grid-template-columns: minmax(0, 1fr);
+  width: min(1200px, 100% - 32px);
+}
+.story-hero__photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.story-hero__photo img {
+  filter: saturate(0.85) contrast(1.05);
+}
+.story-hero__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 13, 43, 0.15) 0%, rgba(10, 13, 43, 0.35) 45%, rgba(10, 13, 43, 0.92) 100%),
+    linear-gradient(90deg, rgba(10, 13, 43, 0.75), transparent 65%);
+}
+.story-hero__photo .photo__credit {
+  z-index: 1;
+  top: 0.8rem;
+  bottom: auto;
+}
+.story-hero--photo .lamp::before,
+.story-hero--photo::before {
+  z-index: -1;
+}
+
+/* Cards, map card and featured story */
+.temple-card__art.has-photo,
+.yatra__art.has-photo {
+  padding: 0;
+  aspect-ratio: 3 / 2;
+}
+.temple-card__art.has-photo .photo,
+.yatra__art.has-photo .photo {
+  height: 100%;
+}
+.temple-card__art.has-photo .temple-card__native {
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+}
+.temple-card:hover .photo img {
+  transform: scale(1.04);
+}
+.temple-card .photo img {
+  transition: transform 0.6s ease;
+}
+.yatra__art.has-photo {
+  max-width: none;
+  margin: 0.4rem 0 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.feature__photo {
+  border-radius: 20px;
+  aspect-ratio: 4 / 5;
+  max-height: 640px;
+}
