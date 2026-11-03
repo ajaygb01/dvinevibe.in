@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Deepam } from "./Deepam";
+import { LogoMark, Wordmark } from "./Logo";
 import { categories } from "@/data/products";
 
 export function Footer() {
@@ -8,9 +8,9 @@ export function Footer() {
             <div className="container footer-grid">
         <div>
           <Link href="/" className="brand brand--light">
-            <Deepam size={40} />
+            <LogoMark size={36} />
             <span className="brand__text">
-              <span className="brand__name">Dvinevibe</span>
+              <Wordmark className="brand__name" />
               <span className="brand__tag">dvinevibe.in</span>
             </span>
           </Link>

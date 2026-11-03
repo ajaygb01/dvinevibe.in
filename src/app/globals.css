@@ -2954,3 +2954,37 @@ em {
   aspect-ratio: 4 / 5;
   max-height: 640px;
 }
+
+/* ==========================================================================
+   Logo: "Door D" mark + Fraunces wordmark with flame dots on the i's.
+   Header and footer are always night, so the mark uses its night colours.
+   ========================================================================== */
+:root {
+  --logo-gold: #e0ad2c;
+  --logo-flame: #ffb347;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.wordmark__i {
+  position: relative;
+  display: inline-block;
+}
+.wordmark__dot {
+  position: absolute;
+  left: 50%;
+  top: 0.02em;
+  width: 0.19em;
+  height: 0.19em;
+  background: var(--logo-flame);
+  border-radius: 50% 0 50% 50%;
+  transform: translateX(-50%) rotate(-45deg);
+}
