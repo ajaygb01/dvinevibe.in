@@ -1,21 +1,21 @@
 import Link from "next/link";
-import type { Temple } from "@/data/temples";
-import { Glyph } from "./Glyph";
+import { readMinutes, type Temple } from "@/data/temples";
+import { TempleArt } from "./TempleArt";
 
-export function TempleCard({ temple }: { temple: Temple }) {
+/** Editorial temple teaser: drawing, region, name, place and standfirst. */
+export function TempleCard({ temple, compact = false }: { temple: Temple; compact?: boolean }) {
   return (
-    <Link href={`/temples/${temple.slug}/`} className="temple-card">
-      <div className="temple-card__top">
-        <Glyph name="gopuram" className="temple-card__icon" />
-        <span className="chip chip--region">{temple.region} India</span>
+    <Link href={`/temples/${temple.slug}/`} className={`temple-card ${compact ? "temple-card--compact" : ""}`}>
+      <div className="temple-card__art">
+        <TempleArt kind={temple.silhouette} />
       </div>
-      <h3>{temple.name}</h3>
-      <p className="temple-card__place">{temple.city}, {temple.state}</p>
-      <p className="muted">{temple.summary}</p>
-      <div className="temple-card__tags">
-        {temple.tags.slice(0, 3).map((t) => (
-          <span className="chip" key={t}>{t}</span>
-        ))}
+      <div className="temple-card__body">
+        <p className="temple-card__meta">
+          {temple.region} India <span aria-hidden="true">·</span> {readMinutes(temple)} min read
+        </p>
+        <h3>{temple.name}</h3>
+        <p className="temple-card__place">{temple.city}, {temple.state}</p>
+        {!compact && <p className="temple-card__summary">{temple.summary}</p>}
       </div>
     </Link>
   );

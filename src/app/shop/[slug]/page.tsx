@@ -46,7 +46,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           <h1>{product.name}</h1>
           {product.deity && <p className="deity">{product.deity}</p>}
           <Stars rating={product.rating} reviews={product.reviews} />
-          <p className="lead">{product.description}</p>
+          <p className="standfirst standfirst--sm">{product.description}</p>
 
           <BuyBox product={product} />
 
@@ -58,7 +58,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           </dl>
 
           <h3 className="subhead">Highlights</h3>
-          <ul className="ticks">
+          <ul className="list-rule">
             {product.highlights.map((h) => (
               <li key={h}>{h}</li>
             ))}
@@ -66,7 +66,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
           {temple && (
             <Link href={`/temples/${temple.slug}/`} className="temple-link">
-              <span className="eyebrow">Inspired by</span>
+              <span className="temple-link__label">Read about the temple</span>
               <strong>{temple.name}</strong>
               <span className="muted">{temple.city}, {temple.state} →</span>
             </Link>
@@ -75,10 +75,10 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
       </section>
 
       {related.length > 0 && (
-        <section className="section section--cream">
+        <section className="band">
           <div className="container">
-            <div className="section-head">
-              <p className="eyebrow">You may also like</p>
+            <div className="section-title">
+              <p className="kicker">You may also like</p>
               <h2>More {category.name.toLowerCase()}</h2>
             </div>
             <div className="product-grid">

@@ -5,8 +5,7 @@ import { categories } from "@/data/products";
 export function Footer() {
   return (
     <footer className="site-footer">
-      <div className="toran" aria-hidden="true" />
-      <div className="container footer-grid">
+            <div className="container footer-grid">
         <div>
           <Link href="/" className="brand brand--light">
             <Deepam size={40} />
@@ -16,8 +15,8 @@ export function Footer() {
             </span>
           </Link>
           <p className="footer-note">
-            Devotional idols, temple miniatures and pooja essentials, 3D printed in India
-            and finished by hand. <em>Sarve bhavantu sukhinah.</em>
+            A guide to the temples of India, and a small workshop making devotional idols and
+            temple miniatures, 3D printed to order and finished by hand.
           </p>
         </div>
         <div>
@@ -31,9 +30,11 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h4>Explore</h4>
+          <h4>Read</h4>
           <ul>
             <li><Link href="/temples/">Temples of India</Link></li>
+            <li><Link href="/#circuits">Jyotirlingas & Char Dham</Link></li>
+            <li><Link href="/#festivals">Festival calendar</Link></li>
             <li><Link href="/about/">Our Craft</Link></li>
             <li><Link href="/cart/">Your Cart</Link></li>
           </ul>
@@ -50,7 +51,7 @@ export function Footer() {
       </div>
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} Dvinevibe. All rights reserved.</span>
-        <span>Made with bhakti 🪔</span>
+        <span>Sarve bhavantu sukhinah</span>
       </div>
     </footer>
   );

@@ -10,14 +10,12 @@ export const metadata: Metadata = {
 export default function ShopPage() {
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <p className="eyebrow">The Collection</p>
+      <header className="container page-head">
+          <p className="kicker">The workshop</p>
           <h1>Shop devotional pieces</h1>
-          <p className="lead">Printed to order and finished by hand. Choose your finish on each product.</p>
-        </div>
-      </section>
-      <section className="section container">
+          <p className="standfirst">Printed to order and finished by hand. Choose your finish on each product.</p>
+      </header>
+      <section className="section section--tight container">
         <Suspense fallback={<p className="muted">Loading collection…</p>}>
           <ShopBrowser />
         </Suspense>

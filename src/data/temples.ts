@@ -4,8 +4,13 @@
 
 export type Region = "North" | "South" | "East" | "West" | "Central";
 
+/** Line drawing used for a temple until real photography is added. */
+export type Silhouette = "gopuram" | "vimana" | "nagara" | "kalinga" | "himalayan" | "kerala" | "cave" | "dome";
+
 export type Temple = {
   slug: string;
+  silhouette: Silhouette;
+  reach: { rail: string; air: string };
   name: string;
   deity: string;
   city: string;
@@ -27,6 +32,8 @@ export const regions: Region[] = ["North", "South", "East", "West", "Central"];
 export const temples: Temple[] = [
   {
     slug: "meenakshi-amman-madurai",
+    silhouette: "gopuram",
+    reach: { rail: "Madurai Junction, about 2 km", air: "Madurai Airport, about 12 km" },
     name: "Meenakshi Amman Temple",
     deity: "Goddess Meenakshi & Lord Sundareswarar (Shiva)",
     city: "Madurai",
@@ -48,6 +55,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "brihadeeswarar-thanjavur",
+    silhouette: "vimana",
+    reach: { rail: "Thanjavur Junction, about 2 km", air: "Tiruchirappalli Airport, about 60 km" },
     name: "Brihadeeswarar Temple",
     deity: "Lord Shiva",
     city: "Thanjavur",
@@ -69,6 +78,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "tirumala-venkateswara",
+    silhouette: "gopuram",
+    reach: { rail: "Tirupati, then about 20 km by road up the ghat", air: "Tirupati Airport (Renigunta), about 40 km" },
     name: "Sri Venkateswara Temple, Tirumala",
     deity: "Lord Venkateswara (Vishnu)",
     city: "Tirumala, near Tirupati",
@@ -90,6 +101,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "ramanathaswamy-rameswaram",
+    silhouette: "gopuram",
+    reach: { rail: "Rameswaram station, about 2 km", air: "Madurai Airport, about 175 km" },
     name: "Ramanathaswamy Temple",
     deity: "Lord Shiva (Jyotirlinga)",
     city: "Rameswaram",
@@ -111,6 +124,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "padmanabhaswamy-thiruvananthapuram",
+    silhouette: "kerala",
+    reach: { rail: "Thiruvananthapuram Central, about 1 km", air: "Thiruvananthapuram International Airport, about 6 km" },
     name: "Sree Padmanabhaswamy Temple",
     deity: "Lord Vishnu (Anantha Shayana)",
     city: "Thiruvananthapuram",
@@ -132,6 +147,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "kashi-vishwanath-varanasi",
+    silhouette: "nagara",
+    reach: { rail: "Varanasi Junction, about 5 km", air: "Lal Bahadur Shastri Airport, about 25 km" },
     name: "Kashi Vishwanath Temple",
     deity: "Lord Shiva (Jyotirlinga)",
     city: "Varanasi",
@@ -153,6 +170,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "kedarnath",
+    silhouette: "himalayan",
+    reach: { rail: "Rishikesh, then by road to Gaurikund and a trek of about 16 km", air: "Jolly Grant Airport, Dehradun" },
     name: "Kedarnath Temple",
     deity: "Lord Shiva (Jyotirlinga)",
     city: "Kedarnath",
@@ -174,6 +193,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "badrinath",
+    silhouette: "himalayan",
+    reach: { rail: "Rishikesh, then about 295 km by road", air: "Jolly Grant Airport, Dehradun" },
     name: "Badrinath Temple",
     deity: "Lord Vishnu (Badrinarayan)",
     city: "Badrinath",
@@ -195,6 +216,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "vaishno-devi",
+    silhouette: "cave",
+    reach: { rail: "Shri Mata Vaishno Devi Katra station", air: "Jammu Airport, about 50 km" },
     name: "Mata Vaishno Devi Shrine",
     deity: "Goddess Vaishno Devi",
     city: "Katra",
@@ -216,6 +239,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "jagannath-puri",
+    silhouette: "kalinga",
+    reach: { rail: "Puri station, about 3 km", air: "Biju Patnaik Airport, Bhubaneswar, about 60 km" },
     name: "Shree Jagannath Temple",
     deity: "Lord Jagannath, Balabhadra & Subhadra",
     city: "Puri",
@@ -237,6 +262,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "konark-sun-temple",
+    silhouette: "kalinga",
+    reach: { rail: "Puri station, about 35 km", air: "Biju Patnaik Airport, Bhubaneswar, about 65 km" },
     name: "Konark Sun Temple",
     deity: "Surya, the Sun God",
     city: "Konark",
@@ -258,6 +285,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "kamakhya-guwahati",
+    silhouette: "dome",
+    reach: { rail: "Kamakhya Junction or Guwahati station", air: "Lokpriya Gopinath Bordoloi Airport, Guwahati, about 20 km" },
     name: "Kamakhya Temple",
     deity: "Goddess Kamakhya (Shakti)",
     city: "Guwahati",
@@ -279,6 +308,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "somnath",
+    silhouette: "nagara",
+    reach: { rail: "Veraval Junction, about 7 km", air: "Diu Airport, about 85 km, or Rajkot" },
     name: "Somnath Temple",
     deity: "Lord Shiva (Jyotirlinga)",
     city: "Prabhas Patan, Veraval",
@@ -300,6 +331,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "siddhivinayak-mumbai",
+    silhouette: "nagara",
+    reach: { rail: "Dadar station, about 2 km", air: "Chhatrapati Shivaji Maharaj International Airport, about 12 km" },
     name: "Shree Siddhivinayak Temple",
     deity: "Lord Ganesha",
     city: "Mumbai",
@@ -321,6 +354,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "khajuraho-kandariya-mahadeva",
+    silhouette: "nagara",
+    reach: { rail: "Khajuraho station, about 8 km", air: "Khajuraho Airport, about 5 km" },
     name: "Kandariya Mahadeva Temple, Khajuraho",
     deity: "Lord Shiva",
     city: "Khajuraho",
@@ -342,6 +377,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "mahakaleshwar-ujjain",
+    silhouette: "nagara",
+    reach: { rail: "Ujjain Junction, about 2 km", air: "Devi Ahilyabai Holkar Airport, Indore, about 55 km" },
     name: "Mahakaleshwar Jyotirlinga",
     deity: "Lord Shiva (Jyotirlinga)",
     city: "Ujjain",
@@ -363,4 +400,49 @@ export const temples: Temple[] = [
   },
 ];
 
+/** Rough reading time for the temple story, in minutes. */
+export const readMinutes = (t: Temple) => {
+  const words = [t.summary, ...t.story, ...t.highlights, ...t.festivals, t.tip].join(" ").split(/\s+/).length;
+  return Math.max(2, Math.round(words / 180) + 1);
+};
+
 export const getTemple = (slug: string) => temples.find((t) => t.slug === slug);
+
+/** The twelve Jyotirlingas. `slug` links to a guide page when we have one. */
+export const jyotirlingas: { name: string; place: string; slug?: string }[] = [
+  { name: "Somnath", place: "Prabhas Patan, Gujarat", slug: "somnath" },
+  { name: "Mallikarjuna", place: "Srisailam, Andhra Pradesh" },
+  { name: "Mahakaleshwar", place: "Ujjain, Madhya Pradesh", slug: "mahakaleshwar-ujjain" },
+  { name: "Omkareshwar", place: "Khandwa, Madhya Pradesh" },
+  { name: "Kedarnath", place: "Rudraprayag, Uttarakhand", slug: "kedarnath" },
+  { name: "Bhimashankar", place: "Pune, Maharashtra" },
+  { name: "Kashi Vishwanath", place: "Varanasi, Uttar Pradesh", slug: "kashi-vishwanath-varanasi" },
+  { name: "Trimbakeshwar", place: "Nashik, Maharashtra" },
+  { name: "Vaidyanath", place: "Deoghar, Jharkhand" },
+  { name: "Nageshwar", place: "Dwarka, Gujarat" },
+  { name: "Ramanathaswamy", place: "Rameswaram, Tamil Nadu", slug: "ramanathaswamy-rameswaram" },
+  { name: "Grishneshwar", place: "Ellora, Maharashtra" },
+];
+
+/** The Char Dham of Adi Shankaracharya's tradition. */
+export const charDham: { name: string; place: string; direction: string; slug?: string }[] = [
+  { name: "Badrinath", place: "Uttarakhand", direction: "North", slug: "badrinath" },
+  { name: "Jagannath Puri", place: "Odisha", direction: "East", slug: "jagannath-puri" },
+  { name: "Rameswaram", place: "Tamil Nadu", direction: "South", slug: "ramanathaswamy-rameswaram" },
+  { name: "Dwarka", place: "Gujarat", direction: "West" },
+];
+
+/** Festival calendar. Lunar dates shift each year, so months are approximate. */
+export const festivalCalendar: { months: string; name: string; slug: string; note: string }[] = [
+  { months: "Feb", name: "Khajuraho Dance Festival", slug: "khajuraho-kandariya-mahadeva", note: "Classical dance against the lit temples" },
+  { months: "Feb – Mar", name: "Maha Shivaratri", slug: "kashi-vishwanath-varanasi", note: "All-night worship at every Shiva temple" },
+  { months: "Apr – May", name: "Chithirai Thiruvizha", slug: "meenakshi-amman-madurai", note: "The celestial wedding of Meenakshi and Sundareswarar" },
+  { months: "Apr – May", name: "Kedarnath opens", slug: "kedarnath", note: "Doors open on Akshaya Tritiya after winter" },
+  { months: "Jun", name: "Ambubachi Mela", slug: "kamakhya-guwahati", note: "The temple closes for three days, then reopens to huge crowds" },
+  { months: "Jun – Jul", name: "Rath Yatra", slug: "jagannath-puri", note: "The deities ride giant chariots through Puri" },
+  { months: "Aug – Sep", name: "Ganesh Chaturthi", slug: "siddhivinayak-mumbai", note: "Mumbai's biggest festival begins at Siddhivinayak" },
+  { months: "Sep – Oct", name: "Brahmotsavam", slug: "tirumala-venkateswara", note: "Nine days of processions on the Tirumala hills" },
+  { months: "Sep – Oct", name: "Navratri", slug: "vaishno-devi", note: "Peak pilgrimage season to the holy cave" },
+  { months: "Nov", name: "Dev Deepawali", slug: "kashi-vishwanath-varanasi", note: "The ghats of Kashi lit with countless diyas" },
+  { months: "Dec", name: "Konark Dance Festival", slug: "konark-sun-temple", note: "Odissi and more in the open-air auditorium by the Sun Temple" },
+];

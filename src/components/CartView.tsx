@@ -68,7 +68,7 @@ export function CartView() {
           <div className="summary__total"><dt>Total</dt><dd>{inr(total)}</dd></div>
         </dl>
         <Link href="/checkout/" className="btn btn--ultra btn--lg btn--block">Proceed to checkout</Link>
-        <Link href="/shop/" className="link-arrow center">← Continue shopping</Link>
+        <Link href="/shop/" className="text-link center">Continue shopping</Link>
       </aside>
     </div>
   );

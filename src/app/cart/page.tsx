@@ -6,8 +6,8 @@ export const metadata: Metadata = { title: "Your cart" };
 export default function CartPage() {
   return (
     <section className="section container">
-      <div className="section-head">
-        <p className="eyebrow">Your offerings</p>
+      <div className="section-title">
+        <p className="kicker">Your offerings</p>
         <h1>Cart</h1>
       </div>
       <CartView />

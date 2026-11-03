@@ -7,17 +7,15 @@ export const metadata: Metadata = { title: "Our Craft" };
 export default function AboutPage() {
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <p className="eyebrow">Our Craft</p>
+      <header className="container page-head">
+          <p className="kicker">Our craft</p>
           <h1>Ancient forms, modern making</h1>
-          <p className="lead">
+          <p className="standfirst">
             Dvinevibe brings the beauty of traditional Indian iconography into every home through
             careful 3D printing and patient hand finishing.
           </p>
-        </div>
-      </section>
-      <section className="section container about">
+      </header>
+      <section className="section section--tight container about">
         <div className="prose">
           <h2>Why 3D printing?</h2>
           <p>
@@ -33,14 +31,14 @@ export default function AboutPage() {
             deepam glows safely.
           </p>
           <h2>Materials</h2>
-          <ul className="ticks">
+          <ul className="list-rule">
             <li>Silk PLA: a plant-based plastic with a lustrous, metal-like sheen.</li>
             <li>PETG: tougher and heat-resistant, for lamps, cars and pooja ware.</li>
             <li>Resin: for our finest miniatures with the tiniest details.</li>
           </ul>
           <Link href="/shop/" className="btn btn--gold btn--lg">Explore the collection</Link>
         </div>
-        <div className="about__art"><Deepam size={220} /></div>
+        <div className="about__art"><Deepam size={200} /></div>
       </section>
     </>
   );

@@ -127,7 +127,7 @@ export function CheckoutForm() {
           <div className="summary__total"><dt>Total</dt><dd>{inr(total + (payment === "cod" ? 49 : 0))}</dd></div>
         </dl>
         <button type="submit" className="btn btn--gold btn--lg btn--block">Place order</button>
-        <p className="muted small center">🔒 Your details are only used to fulfil this order.</p>
+        <p className="muted small center">Your details are only used to fulfil this order.</p>
       </aside>
     </form>
   );
