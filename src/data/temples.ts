@@ -4,11 +4,17 @@
 
 export type Region = "North" | "South" | "East" | "West" | "Central";
 
+export type NativeScript = "deva" | "taml" | "telu" | "mlym" | "orya" | "beng" | "gujr";
+
 /** Line drawing used for a temple until real photography is added. */
 export type Silhouette = "gopuram" | "vimana" | "nagara" | "kalinga" | "himalayan" | "kerala" | "cave" | "dome";
 
 export type Temple = {
   slug: string;
+  /** The temple's name in the script of its region, shown as a large decorative title. */
+  native: { text: string; script: NativeScript; lang: string };
+  /** Latitude and longitude, used to place the temple on the yatra map. */
+  geo: [number, number];
   silhouette: Silhouette;
   reach: { rail: string; air: string };
   name: string;
@@ -32,6 +38,8 @@ export const regions: Region[] = ["North", "South", "East", "West", "Central"];
 export const temples: Temple[] = [
   {
     slug: "meenakshi-amman-madurai",
+    native: { text: "மீனாட்சி அம்மன்", script: "taml", lang: "ta" },
+    geo: [9.9195, 78.1193],
     silhouette: "gopuram",
     reach: { rail: "Madurai Junction, about 2 km", air: "Madurai Airport, about 12 km" },
     name: "Meenakshi Amman Temple",
@@ -55,6 +63,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "brihadeeswarar-thanjavur",
+    native: { text: "பிரகதீசுவரர்", script: "taml", lang: "ta" },
+    geo: [10.7828, 79.1318],
     silhouette: "vimana",
     reach: { rail: "Thanjavur Junction, about 2 km", air: "Tiruchirappalli Airport, about 60 km" },
     name: "Brihadeeswarar Temple",
@@ -78,6 +88,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "tirumala-venkateswara",
+    native: { text: "శ్రీ వేంకటేశ్వర", script: "telu", lang: "te" },
+    geo: [13.6833, 79.3474],
     silhouette: "gopuram",
     reach: { rail: "Tirupati, then about 20 km by road up the ghat", air: "Tirupati Airport (Renigunta), about 40 km" },
     name: "Sri Venkateswara Temple, Tirumala",
@@ -101,6 +113,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "ramanathaswamy-rameswaram",
+    native: { text: "இராமநாதசுவாமி", script: "taml", lang: "ta" },
+    geo: [9.2881, 79.3174],
     silhouette: "gopuram",
     reach: { rail: "Rameswaram station, about 2 km", air: "Madurai Airport, about 175 km" },
     name: "Ramanathaswamy Temple",
@@ -124,6 +138,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "padmanabhaswamy-thiruvananthapuram",
+    native: { text: "ശ്രീ പത്മനാഭസ്വാമി", script: "mlym", lang: "ml" },
+    geo: [8.4828, 76.9436],
     silhouette: "kerala",
     reach: { rail: "Thiruvananthapuram Central, about 1 km", air: "Thiruvananthapuram International Airport, about 6 km" },
     name: "Sree Padmanabhaswamy Temple",
@@ -147,6 +163,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "kashi-vishwanath-varanasi",
+    native: { text: "काशी विश्वनाथ", script: "deva", lang: "hi" },
+    geo: [25.3109, 83.0107],
     silhouette: "nagara",
     reach: { rail: "Varanasi Junction, about 5 km", air: "Lal Bahadur Shastri Airport, about 25 km" },
     name: "Kashi Vishwanath Temple",
@@ -170,6 +188,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "kedarnath",
+    native: { text: "केदारनाथ", script: "deva", lang: "hi" },
+    geo: [30.7352, 79.0669],
     silhouette: "himalayan",
     reach: { rail: "Rishikesh, then by road to Gaurikund and a trek of about 16 km", air: "Jolly Grant Airport, Dehradun" },
     name: "Kedarnath Temple",
@@ -193,6 +213,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "badrinath",
+    native: { text: "बद्रीनाथ", script: "deva", lang: "hi" },
+    geo: [30.7433, 79.4938],
     silhouette: "himalayan",
     reach: { rail: "Rishikesh, then about 295 km by road", air: "Jolly Grant Airport, Dehradun" },
     name: "Badrinath Temple",
@@ -216,6 +238,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "vaishno-devi",
+    native: { text: "वैष्णो देवी", script: "deva", lang: "hi" },
+    geo: [33.0308, 74.949],
     silhouette: "cave",
     reach: { rail: "Shri Mata Vaishno Devi Katra station", air: "Jammu Airport, about 50 km" },
     name: "Mata Vaishno Devi Shrine",
@@ -239,6 +263,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "jagannath-puri",
+    native: { text: "ଜଗନ୍ନାଥ", script: "orya", lang: "or" },
+    geo: [19.8048, 85.8179],
     silhouette: "kalinga",
     reach: { rail: "Puri station, about 3 km", air: "Biju Patnaik Airport, Bhubaneswar, about 60 km" },
     name: "Shree Jagannath Temple",
@@ -262,6 +288,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "konark-sun-temple",
+    native: { text: "କୋଣାର୍କ", script: "orya", lang: "or" },
+    geo: [19.8876, 86.0945],
     silhouette: "kalinga",
     reach: { rail: "Puri station, about 35 km", air: "Biju Patnaik Airport, Bhubaneswar, about 65 km" },
     name: "Konark Sun Temple",
@@ -285,6 +313,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "kamakhya-guwahati",
+    native: { text: "কামাখ্যা", script: "beng", lang: "as" },
+    geo: [26.1664, 91.7055],
     silhouette: "dome",
     reach: { rail: "Kamakhya Junction or Guwahati station", air: "Lokpriya Gopinath Bordoloi Airport, Guwahati, about 20 km" },
     name: "Kamakhya Temple",
@@ -308,6 +338,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "somnath",
+    native: { text: "સોમનાથ", script: "gujr", lang: "gu" },
+    geo: [20.888, 70.4012],
     silhouette: "nagara",
     reach: { rail: "Veraval Junction, about 7 km", air: "Diu Airport, about 85 km, or Rajkot" },
     name: "Somnath Temple",
@@ -331,6 +363,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "siddhivinayak-mumbai",
+    native: { text: "सिद्धिविनायक", script: "deva", lang: "mr" },
+    geo: [19.0169, 72.8301],
     silhouette: "nagara",
     reach: { rail: "Dadar station, about 2 km", air: "Chhatrapati Shivaji Maharaj International Airport, about 12 km" },
     name: "Shree Siddhivinayak Temple",
@@ -354,6 +388,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "khajuraho-kandariya-mahadeva",
+    native: { text: "कंदरिया महादेव", script: "deva", lang: "hi" },
+    geo: [24.8523, 79.9199],
     silhouette: "nagara",
     reach: { rail: "Khajuraho station, about 8 km", air: "Khajuraho Airport, about 5 km" },
     name: "Kandariya Mahadeva Temple, Khajuraho",
@@ -377,6 +413,8 @@ export const temples: Temple[] = [
   },
   {
     slug: "mahakaleshwar-ujjain",
+    native: { text: "महाकालेश्वर", script: "deva", lang: "hi" },
+    geo: [23.1828, 75.7682],
     silhouette: "nagara",
     reach: { rail: "Ujjain Junction, about 2 km", air: "Devi Ahilyabai Holkar Airport, Indore, about 55 km" },
     name: "Mahakaleshwar Jyotirlinga",
@@ -409,27 +447,27 @@ export const readMinutes = (t: Temple) => {
 export const getTemple = (slug: string) => temples.find((t) => t.slug === slug);
 
 /** The twelve Jyotirlingas. `slug` links to a guide page when we have one. */
-export const jyotirlingas: { name: string; place: string; slug?: string }[] = [
+export const jyotirlingas: { name: string; place: string; slug?: string; geo?: [number, number] }[] = [
   { name: "Somnath", place: "Prabhas Patan, Gujarat", slug: "somnath" },
-  { name: "Mallikarjuna", place: "Srisailam, Andhra Pradesh" },
+  { name: "Mallikarjuna", place: "Srisailam, Andhra Pradesh", geo: [16.0742, 78.8687] },
   { name: "Mahakaleshwar", place: "Ujjain, Madhya Pradesh", slug: "mahakaleshwar-ujjain" },
-  { name: "Omkareshwar", place: "Khandwa, Madhya Pradesh" },
+  { name: "Omkareshwar", place: "Khandwa, Madhya Pradesh", geo: [22.2457, 76.1511] },
   { name: "Kedarnath", place: "Rudraprayag, Uttarakhand", slug: "kedarnath" },
-  { name: "Bhimashankar", place: "Pune, Maharashtra" },
+  { name: "Bhimashankar", place: "Pune, Maharashtra", geo: [19.0718, 73.5357] },
   { name: "Kashi Vishwanath", place: "Varanasi, Uttar Pradesh", slug: "kashi-vishwanath-varanasi" },
-  { name: "Trimbakeshwar", place: "Nashik, Maharashtra" },
-  { name: "Vaidyanath", place: "Deoghar, Jharkhand" },
-  { name: "Nageshwar", place: "Dwarka, Gujarat" },
+  { name: "Trimbakeshwar", place: "Nashik, Maharashtra", geo: [19.9322, 73.5309] },
+  { name: "Vaidyanath", place: "Deoghar, Jharkhand", geo: [24.4924, 86.6996] },
+  { name: "Nageshwar", place: "Dwarka, Gujarat", geo: [22.3359, 69.0868] },
   { name: "Ramanathaswamy", place: "Rameswaram, Tamil Nadu", slug: "ramanathaswamy-rameswaram" },
-  { name: "Grishneshwar", place: "Ellora, Maharashtra" },
+  { name: "Grishneshwar", place: "Ellora, Maharashtra", geo: [20.0249, 75.1696] },
 ];
 
 /** The Char Dham of Adi Shankaracharya's tradition. */
-export const charDham: { name: string; place: string; direction: string; slug?: string }[] = [
+export const charDham: { name: string; place: string; direction: string; slug?: string; geo?: [number, number] }[] = [
   { name: "Badrinath", place: "Uttarakhand", direction: "North", slug: "badrinath" },
   { name: "Jagannath Puri", place: "Odisha", direction: "East", slug: "jagannath-puri" },
   { name: "Rameswaram", place: "Tamil Nadu", direction: "South", slug: "ramanathaswamy-rameswaram" },
-  { name: "Dwarka", place: "Gujarat", direction: "West" },
+  { name: "Dwarka", place: "Gujarat", direction: "West", geo: [22.2376, 68.9674] },
 ];
 
 /** Festival calendar. Lunar dates shift each year, so months are approximate. */

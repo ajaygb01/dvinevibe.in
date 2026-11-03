@@ -17,7 +17,7 @@
   --radius-lg: 12px;
   --shadow: 0 1px 2px rgba(25, 26, 70, 0.06), 0 8px 24px -16px rgba(25, 26, 70, 0.35);
 
-  --font-display: "Mukta", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-body: "Mukta", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --paper: #ffffff;
@@ -1894,38 +1894,8 @@ fieldset.card legend {
   }
 }
 
-/* ---------- Marble look: modern sans headlines, quiet panels ---------- */
-h1,
-h2,
-h3 {
-  font-family: var(--font-body);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.08;
-}
-h1 { font-size: clamp(2.3rem, 5vw, 3.9rem); }
-.standfirst { font-family: var(--font-body); font-weight: 300; font-size: clamp(1.1rem, 1.8vw, 1.3rem); }
-.kicker::before { display: none; }
-.kicker { letter-spacing: 0.16em; }
-.side-list strong,
-.calendar strong,
-.calendar__month,
-.numbered li > :nth-child(2),
-.numbered__n,
-.compass__point a,
-.pull p,
-.temple-link strong,
-fieldset.card legend,
-.cart-line__info strong,
-.brand__name {
-  font-family: var(--font-body);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-.side-list strong { font-size: 1.25rem; }
+/* ---------- Marble surfaces ---------- */
 .band { background: var(--paper-2); border-color: transparent; }
-.ink-band a { border-bottom-color: var(--gold-fill); }
-.site-footer { border-top: 1px solid var(--rule); }
 .tone-gold { background: #f6e7b8; }
 .tone-ultra { background: #e6e9f8; color: #2536a6; }
 .tone-flame { background: #f8dcc2; }
@@ -1940,4 +1910,948 @@ fieldset.card legend,
   .tone-gold { background: #3a2f12; color: #e9c35a; }
   .tone-ultra { background: #1c2463; color: #aab7ff; }
   .tone-flame { background: #3d2010; color: #f0a060; }
+}
+
+/* ==========================================================================
+   Sanctum layer: lamp-lit night sections, drawings that draw themselves,
+   names in their own scripts. Reading sections stay calm and light.
+   ========================================================================== */
+
+:root {
+  --night: #0a0d2b;
+  --night-2: #0f1440;
+  --night-3: #161c55;
+  --cream: #f4ead2;
+  --cream-2: #c9c4dc;
+  --cream-3: #9c97bd;
+  --lamp: #ffb347;
+  --gold-line: #e0ad2c;
+  --night-rule: rgba(244, 234, 210, 0.14);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  letter-spacing: -0.02em;
+}
+h3 {
+  font-variation-settings: "opsz" 36;
+}
+em {
+  font-style: italic;
+}
+
+/* Native scripts */
+.native {
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+.native--deva { font-family: "Noto Serif Devanagari", serif; }
+.native--taml { font-family: "Noto Serif Tamil", serif; }
+.native--telu { font-family: "Noto Serif Telugu", serif; }
+.native--mlym { font-family: "Noto Serif Malayalam", serif; }
+.native--orya { font-family: "Noto Serif Oriya", serif; }
+.native--beng { font-family: "Noto Serif Bengali", serif; }
+.native--gujr { font-family: "Noto Serif Gujarati", serif; }
+
+/* Header: always the night sky */
+.site-header {
+  background: color-mix(in srgb, var(--night) 92%, transparent);
+  border-bottom-color: var(--night-rule);
+  color: var(--cream);
+}
+.brand__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+}
+.brand__tag {
+  color: var(--gold-line);
+}
+.main-nav a {
+  color: var(--cream-2);
+}
+.main-nav a:hover,
+.main-nav a.is-active {
+  color: var(--cream);
+  border-bottom-color: var(--gold-line);
+}
+.cart-link {
+  border-color: var(--night-rule);
+  color: var(--cream);
+}
+.cart-link:hover {
+  border-color: var(--gold-line);
+}
+.menu-toggle span {
+  background: var(--cream);
+}
+@media (max-width: 900px) {
+  .main-nav {
+    background: var(--night);
+    border-bottom-color: var(--night-rule);
+  }
+  .main-nav a {
+    border-bottom-color: var(--night-rule);
+  }
+}
+
+/* Night sections */
+.night {
+  position: relative;
+  background: var(--night);
+  color: var(--cream);
+  overflow: hidden;
+  isolation: isolate;
+}
+.night--deep {
+  background: #070a22;
+}
+.night h1,
+.night h2,
+.night h3 {
+  color: var(--cream);
+}
+.night .section-title__note,
+.section-title--light .section-title__note {
+  color: var(--cream-2);
+}
+.lamp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(600px circle at var(--lx, 70%) var(--ly, 40%), rgba(255, 179, 71, 0.16), transparent 60%),
+    radial-gradient(1200px circle at 80% 0%, rgba(37, 54, 166, 0.35), transparent 70%);
+  transition: background 0.2s;
+}
+.text-link--light {
+  color: var(--cream);
+  border-bottom-color: var(--gold-line);
+}
+.text-link--light:hover {
+  color: var(--gold-line);
+}
+.byline--light {
+  color: var(--cream-3);
+}
+
+/* Drawings that draw themselves */
+.draw path,
+.draw ellipse,
+.draw circle {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: draw-in 2.8s cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+}
+.draw g > :nth-child(3n + 2) {
+  animation-delay: 0.25s;
+}
+.draw g > :nth-child(3n) {
+  animation-delay: 0.5s;
+}
+@keyframes draw-in {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .draw path,
+  .draw ellipse,
+  .draw circle {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Reveal on scroll */
+.can-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.can-reveal [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: clamp(3rem, 8vw, 6.5rem) 0 0;
+}
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  min-height: min(72vh, 680px);
+}
+.hero__title {
+  font-size: clamp(3rem, 7.4vw, 6.4rem);
+  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  margin-bottom: 0.4em;
+}
+.hero__title em {
+  display: block;
+  color: var(--gold-line);
+  font-weight: 300;
+}
+.hero__lede {
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  color: var(--cream-2);
+  max-width: 44ch;
+  font-weight: 300;
+}
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem 2rem;
+  margin-top: 2rem;
+}
+.hero__art {
+  position: relative;
+  color: var(--gold-line);
+  display: grid;
+  place-items: center;
+}
+.hero__drawing {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  filter: drop-shadow(0 0 18px rgba(255, 179, 71, 0.35));
+}
+.hero__halo {
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 179, 71, 0.22), transparent 65%);
+  animation: breathe 5s ease-in-out infinite;
+}
+@keyframes breathe {
+  50% {
+    transform: scale(1.08);
+    opacity: 0.75;
+  }
+}
+.hero__native {
+  position: absolute;
+  bottom: -0.9em;
+  left: 50%;
+  translate: -50% 0;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  color: rgba(244, 234, 210, 0.09);
+}
+.btn--gold {
+  background: var(--gold-line);
+  color: #1f1600;
+}
+
+.ribbon {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid var(--night-rule);
+  border-bottom: 1px solid var(--night-rule);
+  padding: 1.1rem 0;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.ribbon__track {
+  display: flex;
+  width: max-content;
+  animation: ribbon 80s linear infinite;
+}
+.ribbon__item {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--cream-2);
+  padding-right: 2.2rem;
+  gap: 2.2rem;
+}
+.ribbon__dot {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--gold-line);
+}
+@keyframes ribbon {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ribbon__track,
+  .hero__halo {
+    animation: none;
+  }
+}
+
+/* ---------- Yatra map ---------- */
+
+.section-title--light h2 {
+  color: var(--cream);
+}
+.yatra {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.yatra__map svg {
+  width: 100%;
+  max-height: 720px;
+  overflow: visible;
+}
+.yatra__grid path {
+  stroke: rgba(244, 234, 210, 0.07);
+  stroke-width: 1;
+}
+.yatra__grid text {
+  fill: rgba(244, 234, 210, 0.28);
+  font-size: 9px;
+  font-family: var(--font-body);
+  letter-spacing: 0.08em;
+}
+.yatra__labels text {
+  fill: rgba(244, 234, 210, 0.32);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 15px;
+}
+.yatra__route {
+  fill: none;
+  stroke: var(--gold-line);
+  stroke-width: 1.2;
+  stroke-dasharray: 3 6;
+  opacity: 0.55;
+}
+.yatra__route-label {
+  fill: var(--gold-line);
+  opacity: 0.7;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+}
+.yatra__other circle {
+  fill: none;
+  stroke: rgba(244, 234, 210, 0.45);
+  stroke-width: 1.2;
+}
+.yatra__glow {
+  transition: r 0.3s;
+  animation: flicker-glow 3s ease-in-out infinite;
+}
+.yatra__diya:nth-child(3n) .yatra__glow {
+  animation-delay: -1s;
+}
+.yatra__diya:nth-child(3n + 1) .yatra__glow {
+  animation-delay: -2s;
+}
+@keyframes flicker-glow {
+  50% {
+    opacity: 0.7;
+  }
+}
+.yatra__flame {
+  fill: #ffe2a3;
+  transition: r 0.3s;
+}
+.yatra__diya.is-on .yatra__flame {
+  fill: #fff4d6;
+}
+.yatra__hit {
+  fill: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.yatra__hit:focus-visible {
+  stroke: var(--gold-line);
+  stroke-width: 1.5;
+}
+.yatra__name {
+  fill: var(--cream);
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  paint-order: stroke;
+  stroke: #070a22;
+  stroke-width: 4px;
+}
+.yatra__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.2rem;
+  font-size: 0.82rem;
+  color: var(--cream-3);
+  margin: 0.8rem 0 0;
+}
+.yatra__key {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: -0.7rem;
+  vertical-align: middle;
+}
+.yatra__key--on {
+  background: #ffe2a3;
+  box-shadow: 0 0 8px 3px rgba(255, 179, 71, 0.6);
+}
+.yatra__key--off {
+  border: 1.2px solid rgba(244, 234, 210, 0.45);
+}
+.yatra__key--route {
+  width: 18px;
+  height: 0;
+  border-radius: 0;
+  border-top: 1.5px dashed var(--gold-line);
+}
+.yatra__card {
+  position: relative;
+  border: 1px solid var(--night-rule);
+  border-radius: 16px;
+  padding: 1.6rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+  overflow: hidden;
+}
+.yatra__native {
+  position: absolute;
+  top: 0.6rem;
+  right: 1rem;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  color: rgba(244, 234, 210, 0.1);
+}
+.yatra__art {
+  color: var(--gold-line);
+  max-width: 340px;
+  margin: 0.5rem auto 1rem;
+}
+.yatra__card h3 {
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  margin-bottom: 0.1em;
+}
+.yatra__place {
+  color: var(--gold-line);
+  margin-bottom: 0.6rem;
+}
+.yatra__sum {
+  color: var(--cream-2);
+}
+
+/* ---------- Featured story ---------- */
+
+.feature {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+.feature__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+.feature__art {
+  position: relative;
+  display: block;
+  background: var(--panel);
+  color: var(--art-line);
+  border-radius: 20px;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem) 0.5rem;
+  overflow: hidden;
+}
+.feature__native {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.6rem;
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  color: color-mix(in srgb, var(--art-line) 16%, transparent);
+}
+.feature__art svg {
+  position: relative;
+}
+.feature__title {
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  line-height: 1;
+  font-weight: 400;
+}
+.feature__title a:hover {
+  color: var(--ultra);
+}
+.feature__quote {
+  margin: 1.4rem 0;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--gold-fill);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  color: var(--ink-2);
+}
+
+/* ---------- Jyotirlinga ring ---------- */
+
+.circuits__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.circuits-band h2 {
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+}
+.dham {
+  margin-top: 2.2rem;
+  border-top: 1px solid var(--night-rule);
+  padding-top: 1.2rem;
+}
+.dham ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 1.5rem;
+}
+.dham li {
+  display: grid;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+.dham a {
+  border-bottom: 1px solid var(--gold-line);
+  width: fit-content;
+}
+.dham a:hover {
+  color: var(--gold-line);
+}
+.dham li > span:last-child {
+  color: var(--cream-3);
+}
+.dham__dir {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-line);
+}
+
+.ring {
+  position: relative;
+  width: min(100% - 300px, 440px);
+  aspect-ratio: 1;
+  margin: 3rem auto;
+}
+.ring__circle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(224, 173, 44, 0.35);
+  box-shadow: inset 0 0 80px rgba(255, 179, 71, 0.08);
+}
+.ring__circle::after {
+  content: "";
+  position: absolute;
+  inset: 22%;
+  border-radius: 50%;
+  border: 1px dashed rgba(224, 173, 44, 0.25);
+}
+.ring__centre {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+.ring__count {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  line-height: 1;
+  color: var(--gold-line);
+}
+.ring__count span {
+  font-size: 0.4em;
+  color: var(--cream-3);
+}
+.ring__caption {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+}
+.ring__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ring__item {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 0;
+  height: 0;
+}
+.ring__item > a,
+.ring__item > span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  transform: translate(-9px, -50%);
+}
+.ring__item--left > a,
+.ring__item--left > span {
+  flex-direction: row-reverse;
+  transform: translate(calc(-100% + 9px), -50%);
+  text-align: right;
+}
+.ring__item--top > a,
+.ring__item--top > span {
+  flex-direction: column-reverse;
+  transform: translate(-50%, calc(-100% + 9px));
+  text-align: center;
+  gap: 0.3rem;
+}
+.ring__item--bottom > a,
+.ring__item--bottom > span {
+  flex-direction: column;
+  transform: translate(-50%, -9px);
+  text-align: center;
+  gap: 0.3rem;
+}
+.ring__lamp {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.2px solid rgba(244, 234, 210, 0.35);
+  background: var(--night);
+}
+.ring__item.is-lit .ring__lamp {
+  border: 0;
+  background: radial-gradient(circle, #fff4d6 0 25%, #ffb347 45%, rgba(255, 179, 71, 0) 72%);
+  box-shadow: 0 0 22px 8px rgba(255, 179, 71, 0.45);
+  animation: flicker-glow 3s ease-in-out infinite;
+}
+.ring__label {
+  display: grid;
+  line-height: 1.15;
+}
+.ring__n {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--cream-3);
+}
+.ring__label strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.12rem;
+  color: var(--cream-3);
+}
+.ring__item.is-lit strong {
+  color: var(--cream);
+}
+.ring__item.is-lit a:hover strong {
+  color: var(--gold-line);
+}
+.ring__place {
+  font-size: 0.74rem;
+  color: var(--cream-3);
+}
+
+/* ---------- Festival year ---------- */
+
+.year__months {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  border-top: 2px solid var(--ink);
+}
+.year__month {
+  padding: 0.8rem 0.5rem 1.2rem;
+  border-left: 1px solid var(--rule);
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.year__month:first-child {
+  border-left: 0;
+}
+.year__month.is-now {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--gold-fill) 16%, transparent), transparent);
+}
+.year__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--ink-3);
+}
+.year__month.has-fest .year__label {
+  color: var(--ink);
+}
+.year__now {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--gold-fill);
+  color: #1f1600;
+  padding: 0.05rem 0.4rem;
+  border-radius: 3px;
+}
+.year__bar {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--rule);
+}
+.year__month.has-fest .year__bar {
+  background: var(--gold-fill);
+}
+.year__fest {
+  display: grid;
+  line-height: 1.2;
+}
+.year__fest strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+.year__fest span {
+  font-size: 0.8rem;
+  color: var(--ink-3);
+}
+.year__fest:hover strong {
+  color: var(--ultra);
+}
+
+/* ---------- Temple cards with native names ---------- */
+
+.temple-card__art {
+  position: relative;
+  overflow: hidden;
+}
+.temple-card__native {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.9rem;
+  font-size: 1.6rem;
+  color: color-mix(in srgb, var(--art-line) 30%, transparent);
+}
+.temple-card__art svg {
+  position: relative;
+}
+.temple-card h3 {
+  font-weight: 500;
+}
+
+/* ---------- Workshop on night ---------- */
+
+.workshop h2 {
+  color: var(--cream);
+}
+.product-grid--night .product-card h3 a,
+.product-grid--night .price {
+  color: var(--cream);
+}
+.product-grid--night .product-card p {
+  color: var(--cream-2);
+}
+.product-grid--night .stars__count,
+.product-grid--night .price s {
+  color: var(--cream-3);
+}
+.product-grid--night .product-art {
+  box-shadow: 0 20px 50px -25px rgba(255, 179, 71, 0.35);
+}
+
+/* ---------- Temple story hero ---------- */
+
+.story-hero {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 0;
+}
+.story-hero__native {
+  position: absolute;
+  bottom: -0.12em;
+  left: -0.04em;
+  font-size: clamp(5rem, 16vw, 15rem);
+  color: rgba(244, 234, 210, 0.05);
+  z-index: -1;
+}
+.story-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: end;
+}
+.story-hero__text {
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+.story-hero h1 {
+  font-size: clamp(2.9rem, 6.4vw, 5.6rem);
+  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+.story-hero__lede {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.35;
+  color: var(--cream-2);
+  max-width: 34ch;
+}
+.story-hero__art {
+  margin: 0;
+  color: var(--gold-line);
+}
+.story-hero__art svg {
+  filter: drop-shadow(0 0 16px rgba(255, 179, 71, 0.3));
+}
+.story-hero__art figcaption {
+  font-size: 0.78rem;
+  color: var(--cream-3);
+  text-align: right;
+  padding: 0.4rem 0 1rem;
+}
+.crumbs--light {
+  color: var(--cream-3);
+}
+.crumbs--light a {
+  color: var(--cream);
+  border-bottom: 1px solid var(--gold-line);
+}
+.prose h2 {
+  font-weight: 500;
+}
+.pull p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--night);
+  color: var(--cream-2);
+  border-top: 1px solid var(--night-rule);
+}
+.site-footer .brand__name {
+  color: var(--cream);
+}
+.footer-grid h4 {
+  color: var(--gold-line);
+}
+.footer-grid a:hover {
+  color: var(--cream);
+}
+.footer-bottom {
+  border-top-color: var(--night-rule);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1020px) {
+  .year__months {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .year__month:nth-child(7) {
+    border-left: 0;
+  }
+  .year__month:nth-child(n + 7) {
+    border-top: 1px solid var(--rule);
+  }
+}
+@media (max-width: 900px) {
+  .hero__grid,
+  .yatra,
+  .feature__grid,
+  .circuits__grid,
+  .story-hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero__grid {
+    min-height: 0;
+  }
+  .hero__art {
+    order: -1;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+  .ring {
+    width: min(100% - 300px, 420px);
+  }
+}
+@media (max-width: 640px) {
+  .ring {
+    width: 100%;
+    aspect-ratio: auto;
+    margin: 1rem 0;
+  }
+  .ring__circle,
+  .ring__centre {
+    display: none;
+  }
+  .ring__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem 1rem;
+  }
+  .ring__item {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+  .ring__item > a,
+  .ring__item > span,
+  .ring__item--left > a,
+  .ring__item--left > span,
+  .ring__item--top > a,
+  .ring__item--top > span,
+  .ring__item--bottom > a,
+  .ring__item--bottom > span {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    text-align: left;
+    white-space: normal;
+    gap: 0.6rem;
+  }
+  .year__months {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .year__month {
+    min-height: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .year__month:nth-child(3n + 1) {
+    border-left: 0;
+  }
+  .ribbon__item {
+    font-size: 1.2rem;
+  }
+  .story-hero__text {
+    padding-bottom: 0.5rem;
+  }
+  .yatra__name {
+    font-size: 22px;
+  }
 }

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTemple, readMinutes, temples } from "@/data/temples";
 import { Kicker } from "@/components/Kicker";
+import { LampLight } from "@/components/LampLight";
+import { NativeName } from "@/components/NativeName";
 import { TempleArt } from "@/components/TempleArt";
 import { TempleCard } from "@/components/TempleCard";
 import { ShopAside, productsForTemple } from "@/components/ShopAside";
@@ -29,24 +31,26 @@ export default async function TemplePage({ params }: { params: Promise<Params> }
 
   return (
     <article>
-      <header className="container story-head">
-        <nav className="crumbs" aria-label="Breadcrumb">
-          <Link href="/temples/">Temples of India</Link> <span aria-hidden="true">/</span> {temple.region} India
-        </nav>
-        <Kicker>{temple.tags.join(" · ")}</Kicker>
-        <h1>{temple.name}</h1>
-        <p className="standfirst">{temple.summary}</p>
-        <p className="byline">
-          {temple.city}, {temple.state} · {temple.style} · {readMinutes(temple)} min read
-        </p>
-      </header>
-
-      <figure className="story-art">
-        <div className="container">
-          <TempleArt kind={temple.silhouette} label={`Line drawing in the ${temple.style} style`} />
-          <figcaption>Drawn in the {temple.style} style. Photographs coming soon.</figcaption>
+      <LampLight className="story-hero">
+        <NativeName temple={temple} className="story-hero__native" />
+        <div className="container story-hero__grid">
+          <div className="story-hero__text">
+            <nav className="crumbs crumbs--light" aria-label="Breadcrumb">
+              <Link href="/temples/">Temples of India</Link> <span aria-hidden="true">/</span> {temple.region} India
+            </nav>
+            <Kicker light>{temple.tags.join(" · ")}</Kicker>
+            <h1>{temple.name}</h1>
+            <p className="story-hero__lede">{temple.summary}</p>
+            <p className="byline byline--light">
+              {temple.city}, {temple.state} · {temple.style} · {readMinutes(temple)} min read
+            </p>
+          </div>
+          <figure className="story-hero__art">
+            <TempleArt kind={temple.silhouette} className="draw" label={`Line drawing in the ${temple.style} style`} />
+            <figcaption>Drawn in the {temple.style} style. Photographs coming soon.</figcaption>
+          </figure>
         </div>
-      </figure>
+      </LampLight>
 
       <div className="container story">
         <div className="story__body">
