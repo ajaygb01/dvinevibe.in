@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { CheckoutForm } from "@/components/CheckoutForm";
 
-export const metadata: Metadata = { title: "Checkout" };
+export const metadata: Metadata = pageMeta({ title: "Checkout", description: "Dvinevibe checkout.", path: "/checkout/", noindex: true });
 
 export default function CheckoutPage() {
   return (

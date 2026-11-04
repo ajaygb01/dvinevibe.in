@@ -7,12 +7,17 @@ import { LampLight } from "@/components/LampLight";
 import { TempleCard } from "@/components/TempleCard";
 import { TamilNaduMap } from "@/components/TamilNaduMap";
 import { Reveal } from "@/components/Reveal";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbLd, itemListLd, pageMeta, templePath } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Temples of Tamil Nadu",
+export const metadata: Metadata = pageMeta({
+  title: "Temples of Tamil Nadu: history, eras and sacred circuits",
   description:
-    "The great temples of Tamil Nadu and their history, from the Pallava shore temples and Chola vimanas to the painted gopurams of Madurai and Srirangam.",
-};
+    "The great temples of Tamil Nadu and their history, from the Pallava shore temples and Chola vimanas to the painted gopurams of Madurai and Srirangam, with the Pancha Bhoota and Arupadai Veedu circuits.",
+  path: "/temples/tamil-nadu/",
+  image: "/temples/meenakshi-amman-madurai.jpg",
+  imageAlt: "The painted south gopuram of the Meenakshi Amman Temple, Madurai",
+});
 
 // North to south, Chennai to Kanyakumari.
 const tn = temples.filter((t) => t.state === "Tamil Nadu").sort((a, b) => b.geo[0] - a.geo[0]);
@@ -22,6 +27,16 @@ export default function TamilNaduPage() {
   return (
     <>
       <Reveal />
+      <JsonLd
+        data={[
+          itemListLd("Temples of Tamil Nadu", "/temples/tamil-nadu/", tn.map((t) => ({ name: t.name, path: templePath(t) }))),
+          breadcrumbLd([
+            { name: "Home", path: "/" },
+            { name: "Temples of India", path: "/temples/" },
+            { name: "Tamil Nadu", path: "/temples/tamil-nadu/" },
+          ]),
+        ]}
+      />
 
       <LampLight className="tn-hero">
         <span className="native native--taml tn-hero__native" lang="ta" aria-hidden="true">தமிழ்நாடு</span>

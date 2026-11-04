@@ -20,7 +20,7 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <h4>Shop</h4>
+          <h2>Shop</h2>
           <ul>
             {categories.map((c) => (
               <li key={c.id}>
@@ -30,7 +30,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h4>Read</h4>
+          <h2>Read</h2>
           <ul>
             <li><Link href="/temples/">Temples of India</Link></li>
             <li><Link href="/#circuits">Jyotirlingas & Char Dham</Link></li>
@@ -40,7 +40,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h4>Care</h4>
+          <h2>Care</h2>
           <ul>
             <li>Printed to order in 3–5 days</li>
             <li>Shipped in 5–7 days across India</li>

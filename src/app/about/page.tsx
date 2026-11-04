@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { Deepam } from "@/components/Deepam";
 
-export const metadata: Metadata = { title: "Our Craft" };
+export const metadata: Metadata = pageMeta({
+  title: "Our craft",
+  description:
+    "How Dvinevibe makes its devotional pieces: temple forms studied from the source, 3D printed to order, then sanded, sealed and finished by hand.",
+  path: "/about/",
+});
 
 export default function AboutPage() {
   return (
