@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { regions, temples, type Region } from "@/data/temples";
 import { TempleCard } from "./TempleCard";
 
-const traditions = ["Shiva", "Vishnu", "Shakti", "Jyotirlinga", "Char Dham", "UNESCO"];
+const traditions = ["Shiva", "Vishnu", "Shakti", "Murugan", "Jyotirlinga", "Char Dham", "Divya Desam", "Pancha Bhoota", "UNESCO"];
 
 export function TempleBrowser() {
   const [region, setRegion] = useState<Region | null>(null);

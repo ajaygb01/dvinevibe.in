@@ -2,6 +2,8 @@
 // Timings and darshan rules change; visitors should confirm with the temple
 // administration before travelling.
 
+import { tamilNaduTemples, tamilNaduTimelines } from "./tamilnadu";
+
 export type Region = "North" | "South" | "East" | "West" | "Central";
 
 export type TemplePhoto = {
@@ -19,6 +21,9 @@ export type NativeScript = "deva" | "taml" | "telu" | "mlym" | "orya" | "beng" |
 
 /** Line drawing used for a temple until real photography is added. */
 export type Silhouette = "gopuram" | "vimana" | "nagara" | "kalinga" | "himalayan" | "kerala" | "cave" | "dome";
+
+/** One dated moment in a temple's history. `when` may be a year, a range or a century. */
+export type TimelineEntry = { when: string; what: string };
 
 export type Temple = {
   slug: string;
@@ -47,11 +52,13 @@ export type Temple = {
   highlights: string[];
   festivals: string[];
   tip: string;
+  /** Optional dated history, shown as a timeline on the temple page. */
+  timeline?: TimelineEntry[];
 };
 
 export const regions: Region[] = ["North", "South", "East", "West", "Central"];
 
-export const temples: Temple[] = [
+const allIndia: Temple[] = [
   {
     slug: "meenakshi-amman-madurai",
     native: { text: "மீனாட்சி அம்மன்", script: "taml", lang: "ta" },
@@ -454,9 +461,15 @@ export const temples: Temple[] = [
   },
 ];
 
+/** Every temple in the guide: the all-India list, then the Tamil Nadu guides. */
+export const temples: Temple[] = [
+  ...allIndia.map((t) => (t.timeline || !tamilNaduTimelines[t.slug] ? t : { ...t, timeline: tamilNaduTimelines[t.slug] })),
+  ...tamilNaduTemples,
+];
+
 /** Rough reading time for the temple story, in minutes. */
 export const readMinutes = (t: Temple) => {
-  const words = [t.summary, ...t.story, ...t.highlights, ...t.festivals, t.tip].join(" ").split(/\s+/).length;
+  const words = [t.summary, ...t.story, ...t.highlights, ...t.festivals, t.tip, ...(t.timeline ?? []).map((e) => e.what)].join(" ").split(/\s+/).length;
   return Math.max(2, Math.round(words / 180) + 1);
 };
 
