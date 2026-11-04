@@ -54,6 +54,13 @@ export const regions: Region[] = ["North", "South", "East", "West", "Central"];
 export const temples: Temple[] = [
   {
     slug: "meenakshi-amman-madurai",
+    photo: {
+      src: "/temples/meenakshi-amman-madurai.jpg",
+      alt: "The south gopuram of the Meenakshi Amman Temple, covered in painted stucco figures",
+      credit: "MADHURANTHAKAN JAGADEESAN",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:S-TN-34_Meenakshi_Amman_Temple_South_Gopuram_enriched_with_delicate_Stucco_works.jpg",
+    },
     native: { text: "மீனாட்சி அம்மன்", script: "taml", lang: "ta" },
     geo: [9.9195, 78.1193],
     silhouette: "gopuram",
@@ -79,6 +86,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "brihadeeswarar-thanjavur",
+    photo: {
+      src: "/temples/brihadeeswarar-thanjavur.jpg",
+      alt: "The Brihadeeswarar Temple vimana lit up at dusk during Maha Shivaratri",
+      credit: "Rainer Halama (edit by UnpetitproleX)",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Brihadisvara_Temple_during_Maha_Shivaratri-WUS03611_(edit).jpg",
+    },
     native: { text: "பிரகதீசுவரர்", script: "taml", lang: "ta" },
     geo: [10.7828, 79.1318],
     silhouette: "vimana",
@@ -104,6 +118,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "tirumala-venkateswara",
+    photo: {
+      src: "/temples/tirumala-venkateswara.jpg",
+      alt: "The white gopuram of the Tirumala temple below the green Seshachalam hills",
+      credit: "Nikhilb239",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Tirumala_090615.jpg",
+    },
     native: { text: "శ్రీ వేంకటేశ్వర", script: "telu", lang: "te" },
     geo: [13.6833, 79.3474],
     silhouette: "gopuram",
@@ -129,6 +150,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "ramanathaswamy-rameswaram",
+    photo: {
+      src: "/temples/ramanathaswamy-rameswaram.jpg",
+      alt: "The golden-yellow gopuram above the entrance of the Ramanathaswamy Temple",
+      credit: "Ssriram mt",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Ramanathaswamy_temple7.JPG",
+    },
     native: { text: "இராமநாதசுவாமி", script: "taml", lang: "ta" },
     geo: [9.2881, 79.3174],
     silhouette: "gopuram",
@@ -154,6 +182,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "padmanabhaswamy-thiruvananthapuram",
+    photo: {
+      src: "/temples/padmanabhaswamy-thiruvananthapuram.jpg",
+      alt: "The east gopuram of the Sree Padmanabhaswamy Temple above its stone steps",
+      credit: "Rahulrnath001",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Sree_Padmanabhaswamy_temple_01.jpg",
+    },
     native: { text: "ശ്രീ പത്മനാഭസ്വാമി", script: "mlym", lang: "ml" },
     geo: [8.4828, 76.9436],
     silhouette: "kerala",
@@ -179,6 +214,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "kashi-vishwanath-varanasi",
+    photo: {
+      src: "/temples/kashi-vishwanath-varanasi.jpg",
+      alt: "The golden spires of the Kashi Vishwanath Temple glowing at night",
+      credit: "Immanuelle",
+      license: "CC BY 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Kashi_Vishwanath_Temple_Main_Area-3.jpg",
+    },
     native: { text: "काशी विश्वनाथ", script: "deva", lang: "hi" },
     geo: [25.3109, 83.0107],
     silhouette: "nagara",
@@ -204,6 +246,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "kedarnath",
+    photo: {
+      src: "/temples/kedarnath.jpg",
+      alt: "Kedarnath Temple with snow-covered Himalayan peaks behind",
+      credit: "Shivam Kumar 766",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Kedarnath_Temple_in_Rainy_season.jpg",
+    },
     native: { text: "केदारनाथ", script: "deva", lang: "hi" },
     geo: [30.7352, 79.0669],
     silhouette: "himalayan",
@@ -229,6 +278,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "badrinath",
+    photo: {
+      src: "/temples/badrinath.jpg",
+      alt: "The brightly painted facade of the Badrinath Temple with saffron flags",
+      credit: "Anubha khare",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Badrinath_Temple_,_Uttarakhand.jpg",
+    },
     native: { text: "बद्रीनाथ", script: "deva", lang: "hi" },
     geo: [30.7433, 79.4938],
     silhouette: "himalayan",
@@ -254,6 +310,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "vaishno-devi",
+    photo: {
+      src: "/temples/vaishno-devi.jpg",
+      alt: "The Vaishno Devi Bhawan on the slopes of the Trikuta hills",
+      credit: "KDhruv406",
+      license: "CC BY 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Shri_Mata_Vaishno_Devi_Bhawan,_Katra_Jammu_%26_Kashmir_INDIA.jpg",
+    },
     native: { text: "वैष्णो देवी", script: "deva", lang: "hi" },
     geo: [33.0308, 74.949],
     silhouette: "cave",
@@ -279,6 +342,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "jagannath-puri",
+    photo: {
+      src: "/temples/jagannath-puri.jpg",
+      alt: "The tall spire of the Shree Jagannath Temple in Puri above crowds of pilgrims",
+      credit: "Prachites",
+      license: "CC BY-SA 3.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Shri_Jagannath_temple.jpg",
+    },
     native: { text: "ଜଗନ୍ନାଥ", script: "orya", lang: "or" },
     geo: [19.8048, 85.8179],
     silhouette: "kalinga",
@@ -304,6 +374,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "konark-sun-temple",
+    photo: {
+      src: "/temples/konark-sun-temple.jpg",
+      alt: "The stone Sun Temple at Konark on its lawns",
+      credit: "Subham9423",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Konarka_Temple.jpg",
+    },
     native: { text: "କୋଣାର୍କ", script: "orya", lang: "or" },
     geo: [19.8876, 86.0945],
     silhouette: "kalinga",
@@ -329,6 +406,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "kamakhya-guwahati",
+    photo: {
+      src: "/temples/kamakhya-guwahati.jpg",
+      alt: "The beehive-shaped domes of the Kamakhya Temple on Nilachal Hill",
+      credit: "Devkmaravi",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Kamakhya_Temple_-_DEV_8829.jpg",
+    },
     native: { text: "কামাখ্যা", script: "beng", lang: "as" },
     geo: [26.1664, 91.7055],
     silhouette: "dome",
@@ -354,6 +438,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "somnath",
+    photo: {
+      src: "/temples/somnath.jpg",
+      alt: "The golden sandstone Somnath Temple by the Arabian Sea",
+      credit: "B. SurajPatro1997",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Somanath_mandir_(cropped).jpg",
+    },
     native: { text: "સોમનાથ", script: "gujr", lang: "gu" },
     geo: [20.888, 70.4012],
     silhouette: "nagara",
@@ -379,6 +470,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "siddhivinayak-mumbai",
+    photo: {
+      src: "/temples/siddhivinayak-mumbai.jpg",
+      alt: "The Shree Siddhivinayak Temple in Prabhadevi, Mumbai, under a blue sky",
+      credit: "Swaminathan",
+      license: "CC BY 2.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Famous_SiddhiVinayak_Temple.jpg",
+    },
     native: { text: "सिद्धिविनायक", script: "deva", lang: "mr" },
     geo: [19.0169, 72.8301],
     silhouette: "nagara",
@@ -404,6 +502,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "khajuraho-kandariya-mahadeva",
+    photo: {
+      src: "/temples/khajuraho-kandariya-mahadeva.jpg",
+      alt: "The carved sandstone spires of the Kandariya Mahadeva Temple, Khajuraho",
+      credit: "China Crisis",
+      license: "CC BY-SA 3.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Khajuraho.KandariyaMahadeva.jpg",
+    },
     native: { text: "कंदरिया महादेव", script: "deva", lang: "hi" },
     geo: [24.8523, 79.9199],
     silhouette: "nagara",
@@ -429,6 +534,13 @@ export const temples: Temple[] = [
   },
   {
     slug: "mahakaleshwar-ujjain",
+    photo: {
+      src: "/temples/mahakaleshwar-ujjain.jpg",
+      alt: "The Mahakaleshwar Temple spire lit up at night",
+      credit: "Ashverse",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Mahakaleshwar_Temple,_Ujjain.jpg",
+    },
     native: { text: "महाकालेश्वर", script: "deva", lang: "hi" },
     geo: [23.1828, 75.7682],
     silhouette: "nagara",
