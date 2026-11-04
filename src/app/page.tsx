@@ -11,6 +11,7 @@ import { YatraMap } from "@/components/YatraMap";
 import { JyotirlingaRing } from "@/components/JyotirlingaRing";
 import { FestivalYear } from "@/components/FestivalYear";
 import { Reveal } from "@/components/Reveal";
+import { TamilNaduTeaser } from "@/components/TamilNaduTeaser";
 import { products } from "@/data/products";
 import { charDham, getTemple, readMinutes, temples } from "@/data/temples";
 
@@ -147,6 +148,9 @@ export default function HomePage() {
             {guides.map((t) => (
               <TempleCard key={t.slug} temple={t} />
             ))}
+          </div>
+          <div className="tn-teaser-wrap" data-reveal>
+            <TamilNaduTeaser />
           </div>
         </div>
       </section>

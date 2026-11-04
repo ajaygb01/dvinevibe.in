@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { TempleBrowser } from "@/components/TempleBrowser";
 import { Kicker } from "@/components/Kicker";
+import { TamilNaduTeaser } from "@/components/TamilNaduTeaser";
 
 export const metadata: Metadata = {
   title: "Temples of India",
@@ -19,6 +20,9 @@ export default function TemplesPage() {
         </p>
       </header>
       <section className="container section section--tight">
+        <div className="tn-teaser-wrap tn-teaser-wrap--top">
+          <TamilNaduTeaser />
+        </div>
         <TempleBrowser />
         <p className="fineprint">
           Darshan timings, dress codes and yatra rules change. Please check with the temple

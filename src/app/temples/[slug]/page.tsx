@@ -27,7 +27,10 @@ export default async function TemplePage({ params }: { params: Promise<Params> }
   const temple = getTemple(slug);
   if (!temple) notFound();
   const shop = productsForTemple(temple);
-  const nearby = temples.filter((t) => t.region === temple.region && t.slug !== temple.slug).slice(0, 3);
+  const others = temples.filter((t) => t.slug !== temple.slug);
+  const sameState = others.filter((t) => t.state === temple.state);
+  const nearby = (sameState.length >= 3 ? sameState : others.filter((t) => t.region === temple.region)).slice(0, 3);
+  const isTamilNadu = temple.state === "Tamil Nadu";
   const next = nearby.length ? nearby : temples.filter((t) => t.slug !== temple.slug).slice(0, 3);
 
   return (
@@ -38,7 +41,8 @@ export default async function TemplePage({ params }: { params: Promise<Params> }
         <div className="container story-hero__grid">
           <div className="story-hero__text">
             <nav className="crumbs crumbs--light" aria-label="Breadcrumb">
-              <Link href="/temples/">Temples of India</Link> <span aria-hidden="true">/</span> {temple.region} India
+              <Link href="/temples/">Temples of India</Link> <span aria-hidden="true">/</span>{" "}
+              {isTamilNadu ? <Link href="/temples/tamil-nadu/">Tamil Nadu</Link> : `${temple.region} India`}
             </nav>
             <Kicker light>{temple.tags.join(" · ")}</Kicker>
             <h1>{temple.name}</h1>
@@ -60,6 +64,20 @@ export default async function TemplePage({ params }: { params: Promise<Params> }
         <div className="story__body">
           <div className="prose">
             {temple.story.map((para, i) => <p key={i}>{para}</p>)}
+
+            {temple.timeline && (
+              <>
+                <h2>Through the centuries</h2>
+                <ol className="timeline">
+                  {temple.timeline.map((e) => (
+                    <li key={e.when + e.what}>
+                      <span className="timeline__when">{e.when}</span>
+                      <p>{e.what}</p>
+                    </li>
+                  ))}
+                </ol>
+              </>
+            )}
 
             <h2>What to see</h2>
             <ul className="list-rule">
@@ -116,11 +134,16 @@ export default async function TemplePage({ params }: { params: Promise<Params> }
         <div className="container">
           <div className="section-title">
             <Kicker>Continue the yatra</Kicker>
-            <h2>{nearby.length ? `More in ${temple.region} India` : "More temples"}</h2>
+            <h2>{isTamilNadu ? "More in Tamil Nadu" : nearby.length ? `More in ${temple.region} India` : "More temples"}</h2>
           </div>
           <div className="temple-grid temple-grid--3">
             {next.map((t) => <TempleCard key={t.slug} temple={t} compact />)}
           </div>
+          {isTamilNadu && (
+            <p className="band__more">
+              <Link href="/temples/tamil-nadu/" className="text-link">All the temples of Tamil Nadu</Link>
+            </p>
+          )}
         </div>
       </section>
     </article>
