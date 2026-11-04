@@ -31,6 +31,18 @@ npm run build    # static site in ./out, deploy anywhere (Netlify, Vercel, GitHu
 - Temples: `src/data/temples.ts`
 - Theme colours (gold, flame, ultramarine): CSS variables at the top of `src/app/globals.css`
 
+## SEO and AI visibility
+
+Everything is generated at build time from the data files, so new temples and products are picked up automatically.
+
+- `src/lib/seo.ts`: site URL, `pageMeta()` (title, description, canonical, Open Graph, Twitter card) and the JSON-LD builders.
+- Structured data: Organization and WebSite on every page; `HinduTemple` + `TouristAttraction` + `Article` on temple pages; `Product` with an `Offer` on product pages (no ratings until they are real); `BreadcrumbList` and `ItemList` on listings.
+- `/sitemap.xml`, `/robots.txt` (search engines and AI crawlers allowed by name; cart and checkout kept out).
+- `/llms.txt` (a map of the site for AI assistants, per llmstxt.org) and `/llms-full.txt` (every temple guide as plain text). Built in `src/lib/llms.ts`.
+- `/og.png`: the link-preview card for pages without their own photo. Temple pages use their photo.
+
+After launch: add the site to Google Search Console and Bing Webmaster Tools and submit `https://dvinevibe.in/sitemap.xml`. Bing also feeds ChatGPT search and Copilot.
+
 ## Before going live
 
 - [ ] Replace placeholder products, prices, ratings and testimonials with real ones.

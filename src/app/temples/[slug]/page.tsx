@@ -9,6 +9,8 @@ import { TempleArt } from "@/components/TempleArt";
 import { TemplePhoto } from "@/components/TemplePhoto";
 import { TempleCard } from "@/components/TempleCard";
 import { ShopAside, productsForTemple } from "@/components/ShopAside";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbLd, pageMeta, templeLd, templePath, templeTitle } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -19,7 +21,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
   const t = getTemple(slug);
-  return t ? { title: `${t.name}, ${t.city}`, description: t.summary } : {};
+  if (!t) return {};
+  return pageMeta({
+    title: `${templeTitle(t)}: history and guide`,
+    description: t.summary,
+    path: templePath(t),
+    type: "article",
+    image: t.photo?.src,
+    imageAlt: t.photo?.alt,
+    keywords: [t.name, `${t.name} history`, `${t.city} temple`, t.deity, t.style, `${t.state} temples`, ...t.tags],
+  });
 }
 
 export default async function TemplePage({ params }: { params: Promise<Params> }) {
@@ -35,6 +46,17 @@ export default async function TemplePage({ params }: { params: Promise<Params> }
 
   return (
     <article>
+      <JsonLd
+        data={[
+          ...templeLd(temple),
+          breadcrumbLd([
+            { name: "Home", path: "/" },
+            { name: "Temples of India", path: "/temples/" },
+            ...(isTamilNadu ? [{ name: "Tamil Nadu", path: "/temples/tamil-nadu/" }] : []),
+            { name: temple.name, path: templePath(temple) },
+          ]),
+        ]}
+      />
       <LampLight className={`story-hero ${temple.photo ? "story-hero--photo" : ""}`}>
         {temple.photo && <TemplePhoto temple={temple} className="story-hero__photo" />}
         <NativeName temple={temple} className="story-hero__native" />

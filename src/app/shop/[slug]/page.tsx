@@ -7,6 +7,8 @@ import { ProductArt } from "@/components/ProductArt";
 import { ProductCard } from "@/components/ProductCard";
 import { Stars } from "@/components/Stars";
 import { BuyBox } from "@/components/BuyBox";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbLd, pageMeta, productLd, productPath } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -17,7 +19,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
   const p = getProduct(slug);
-  return p ? { title: p.name, description: p.short } : {};
+  if (!p) return {};
+  const category = getCategory(p.category);
+  return pageMeta({
+    title: `${p.name}, 3D printed${p.deity ? ` ${p.deity}` : ""}`,
+    description: `${p.short} ${p.height}, ${p.material}. Printed to order and finished by hand in India.`,
+    path: productPath(p),
+    keywords: [p.name, p.deity, category?.name, "3D printed", "devotional gift"].filter(Boolean) as string[],
+  });
 }
 
 export default async function ProductPage({ params }: { params: Promise<Params> }) {
@@ -30,10 +39,20 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
   return (
     <>
-      <div className="container breadcrumbs">
+      <JsonLd
+        data={[
+          productLd(product, category.name),
+          breadcrumbLd([
+            { name: "Home", path: "/" },
+            { name: "Shop", path: "/shop/" },
+            { name: product.name, path: productPath(product) },
+          ]),
+        ]}
+      />
+      <nav className="container breadcrumbs" aria-label="Breadcrumb">
         <Link href="/">Home</Link> / <Link href="/shop/">Shop</Link> /{" "}
-        <Link href={`/shop/?c=${category.id}`}>{category.name}</Link> / <span>{product.name}</span>
-      </div>
+        <Link href={`/shop/?c=${category.id}`}>{category.name}</Link> / <span aria-current="page">{product.name}</span>
+      </nav>
 
       <section className="container product-detail">
         <div className="product-detail__media">

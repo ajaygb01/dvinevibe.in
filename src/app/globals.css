@@ -1688,7 +1688,7 @@ fieldset.card legend {
   gap: 2rem;
   padding-block: 3rem 2rem;
 }
-.footer-grid h4 {
+.footer-grid h2 {
   color: var(--gold-fill);
   font-family: var(--font-body);
   font-size: 0.78rem;
@@ -2757,7 +2757,7 @@ em {
 .site-footer .brand__name {
   color: var(--cream);
 }
-.footer-grid h4 {
+.footer-grid h2 {
   color: var(--gold-line);
 }
 .footer-grid a:hover {

@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
+import { itemListLd, pageMeta, SITE, templePath } from "@/lib/seo";
 import { Kicker } from "@/components/Kicker";
 import { TempleArt } from "@/components/TempleArt";
 import { TemplePhoto } from "@/components/TemplePhoto";
@@ -15,6 +18,15 @@ import { TamilNaduTeaser } from "@/components/TamilNaduTeaser";
 import { products } from "@/data/products";
 import { charDham, getTemple, readMinutes, temples } from "@/data/temples";
 
+export const metadata: Metadata = {
+  ...pageMeta({
+    title: "Dvinevibe | Temples of India: history, festivals and travel guides",
+    description: SITE.description,
+    path: "/",
+  }),
+  title: { absolute: "Dvinevibe | Temples of India: history, festivals and travel guides" },
+};
+
 export default function HomePage() {
   const lead = getTemple("meenakshi-amman-madurai")!;
   const guides = ["kashi-vishwanath-varanasi", "jagannath-puri", "brihadeeswarar-thanjavur", "kamakhya-guwahati", "somnath", "padmanabhaswamy-thiruvananthapuram"].map((s) => getTemple(s)!);
@@ -23,6 +35,7 @@ export default function HomePage() {
   return (
     <>
       <Reveal />
+      <JsonLd data={itemListLd("Temples of India", "/", temples.map((t) => ({ name: t.name, path: templePath(t) })))} />
 
       {/* Hero: the sanctum */}
       <LampLight className="hero">

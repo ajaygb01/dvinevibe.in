@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { CartView } from "@/components/CartView";
 
-export const metadata: Metadata = { title: "Your cart" };
+export const metadata: Metadata = pageMeta({ title: "Your cart", description: "Your Dvinevibe cart.", path: "/cart/", noindex: true });
 
 export default function CartPage() {
   return (
