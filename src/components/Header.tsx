@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Deepam } from "./Deepam";
+import { LogoMark, Wordmark } from "./Logo";
 import { useCart } from "./CartProvider";
 import { getProduct } from "@/data/products";
 
@@ -25,9 +25,9 @@ export function Header() {
     <header className="site-header">
       <div className="container header-bar">
         <Link href="/" className="brand" onClick={() => setOpen(false)}>
-          <Deepam size={42} />
+          <LogoMark size={38} />
           <span className="brand__text">
-            <span className="brand__name">Dvinevibe</span>
+            <Wordmark className="brand__name" />
             <span className="brand__tag">Temples of India · Devotional crafts</span>
           </span>
         </Link>
